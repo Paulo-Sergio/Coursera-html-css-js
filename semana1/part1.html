@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DATING WEBSITE!!</title>
+	</head>
+	<body>
+		<form action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" method="post" enctype="multipart/form-data">
+			<h1>Please Enter Your Details For Our Dating Website!</p1> </h1><br>
+			<fieldset>
+				<legend>Your Face</legend> <br>
+				<label for="avatar">Your image:</label>
+				<input type="file" name="avatar" required> <br>
+				<label for="image">Image preview:</label>
+				<img id="image" name="image" width="300" height="100"><br>
+			</fieldset>
+			<fieldset>
+				<legend>Your General Details</legend> <br>
+				<label for="firstName">Name:</label>
+				<input type="text" name="firstName" required> <br>
+				<label for="genderItem">Gender:</label>
+				<input type="radio" name="genderItem" value="Male" required>Male
+				<input type="radio" name="genderItem" value="Female" required>Female <br>
+				<label for="age">Age:</label>
+				<input type="number" name="age" required> <br>
+				<label for="dataOfBirth">Date of birth:</label>
+				<input type="date" name="dataOfBirth"> <br>
+				<label for="favoriteColor">Favorite color:</label>
+				<input type="color" name="favoriteColor"> <br>
+				<label for="cities">Which country:</label>
+				<select name="cities">
+					<option value="br">no selection</option>
+					<option value="br">Brasil</option>
+					<option value="ur">Uruguai</option>
+					<option value="ar">Argentina</option>
+					<option value="ch">Chile</option>
+					<option value="pa">Paraguai</option>
+				</select> <br>				
+			</fieldset>
+			<fieldset>
+				<legend>Your Indicators</legend> <br>
+				<label for="height">Height:</label>
+				Short <input type="range" min="0" max="100" step="5" value="50" id="height" name="height"> Tall<br>
+				<label for="salary">Salary:</label>
+				Bad <input type="range" min="0" max="100" step="5" value="50" id="salary" name="salary"> Good<br>
+			</fieldset>
+			<fieldset>
+				<legend>Your Contact Information</legend> <br>
+				<label for="email">Email:</label>
+				<input type="email" name="email" required> <br>
+				<label for="tel">Mobile:</label>
+				<input type="tel" name="tel"> <br>
+				<label for="address">Address:</label>
+				<textarea rows="3" cols="60" name="address" >								
+				</textarea> <br>
+				<label for="contact">Method to contact you:</label>
+				<input type="checkbox" name="contact" value="email">Email
+				<input type="checkbox" name="contact" value="whatsapp">Whatsapp
+				<input type="checkbox" name="contact" value="chat">In-app Chat <br>				
+			</fieldset>
+			<input type="submit" value="Submit!">
+		</form>
+	</body>	
+</html>

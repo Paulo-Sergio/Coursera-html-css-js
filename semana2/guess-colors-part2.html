@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body onload="on_game()">
+
+	<div>
+		<p id="result">Starting Game...</p>
+	</div>
+
+	<script>
+		var target;
+		var guess_input_text;
+		var finished = false;
+		var guesses = 0;
+		var colors = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
+
+		function on_game() {
+			var random_number = Math.random() * (colors.length - 1); 
+			var random_number_integer = Math.floor(random_number);//me traz valores de 0 .. 9
+			
+			target = colors[random_number_integer]; //cor escolhida randomicamente
+			console.log("Resposta: " + target);
+			
+			while(!finished){
+				guess_input_text = prompt("I am thinking of one of these colors: \n\nblue, cyan, gold, gray, green, magenta, orange, red, white, yellow\n\nWhat color am I thinking of ?");
+				guesses += 1;
+				
+				var isColorArray = colors.indexOf(guess_input_text);
+				
+				finished = check_guess(isColorArray);
+			}
+			
+			var txtResult = "Congratularions! You have guessed the color! <br>It took you "+guesses+" guesses to finish the game! <br>You can see the colour in the background.";
+			var result = document.getElementById("result");
+			result.innerHTML = txtResult;
+			
+			var myBody = document.getElementsByTagName("body")[0];
+			myBody.style.background = target;
+		}
+		
+		function check_guess(isColorArray){
+			if(isColorArray == -1){
+				alert("Sorry, I don't recognize your color. \n\nPlease try again.");
+				return false;
+			}
+			if(guess_input_text > target){
+				alert("Sorry, your guess is not correct! \n\nHint: your color is alphabetically higther than mine. \n\nPlease try again.");
+				return false;
+			}
+			if(guess_input_text < target){
+				alert("Sorry, your guess is not correct! \n\nHint: your color is alphabetically lower than mine. \n\nPlease try again.");
+				return false;
+			}
+			
+			alert("Congratularions! You have guessed the color! \n\nIt took you "+guesses+" guesses to finish the game! \n\nYou can see the colour in the background.");
+			return true;
+		}
+	</script>
+</body>
+</html>

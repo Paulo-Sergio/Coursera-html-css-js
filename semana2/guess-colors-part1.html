@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body onload="on_game()">
+
+	<script>
+		var target;
+		var guess_input_text;
+		var finished = false;
+		var colors = ["blue", "cyan", "gold", "gray", "green"];
+
+		function on_game() {
+			var random_number = Math.random() * (colors.length - 1); 
+			var random_number_integer = Math.floor(random_number);//me traz valores de 0 .. 4
+			
+			target = colors[random_number_integer]; //cor escolhida randomicamente
+			console.log("Resposta: " + target);
+			
+			while(!finished){
+				guess_input_text = prompt("I am thinking of one of these colors: \n\nblue, cyan, gold, gray\n\nWhat color am I thinking of ?");
+								
+				if(guess_input_text == target){
+					finished = true;
+				}
+			}
+			
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Semana 3</title>
+<style>
+img {
+	position: absolute;
+}
+
+div {
+	position: absolute;
+	width: 500px;
+	height: 500px;
+}
+
+#rightside {
+	left: 500px;
+	border-left: 1px solid black;
+}
+</style>
+</head>
+<body id="theBody" onload="generateFaces()">
+
+	<h2>Matching Game</h2>
+	<p>Click on the extra smiling face on the left.</p>
+
+	<div id="leftside"></div>
+
+	<div id="rightside"></div>
+
+	<script type="text/javascript">
+		var numberOfFaces = 5;
+		var theLeftSide = document.getElementById("leftside");
+		var theRightSide = document.getElementById("rightside");
+
+		function generateFaces() {
+			for (var i = 0; i < numberOfFaces; i++) {
+				//------------Left Side
+				var thisImg = document.createElement("img");
+				thisImg.src = "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+
+				var leftPositionRandom = Math.random() * 401;
+				leftPositionRandom = Math.floor(leftPositionRandom); //valores de left 0 .. 400
+				var topPositionRandom = Math.random() * 401;
+				topPositionRandom = Math.floor(topPositionRandom); //valores de top 0 .. 400
+
+				thisImg.style.top = topPositionRandom + "px";
+				thisImg.style.left = leftPositionRandom + "px";
+
+				theLeftSide.appendChild(thisImg);
+			}
+			
+			//-------------Right Side
+			leftSideImages = theLeftSide.cloneNode(true);
+			leftSideImages.removeChild(leftSideImages.lastChild);
+			
+			theRightSide.appendChild(leftSideImages);
+		}
+	</script>
+</body>
+</html>
